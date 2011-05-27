@@ -7,7 +7,8 @@ CREATE TABLE [Person].[Address]
 [StateProvinceID] [int] NOT NULL,
 [PostalCode] [nvarchar] (15) COLLATE Latin1_General_CS_AS NOT NULL,
 [rowguid] [uniqueidentifier] NOT NULL ROWGUIDCOL CONSTRAINT [DF_Address_rowguid] DEFAULT (newid()),
-[ModifiedDate] [datetime] NOT NULL CONSTRAINT [DF_Address_ModifiedDate] DEFAULT (getdate())
+[ModifiedDate] [datetime] NOT NULL CONSTRAINT [DF_Address_ModifiedDate] DEFAULT (getdate()),
+[nieuw veldje] [nchar] (10) COLLATE Latin1_General_CS_AS NULL
 ) ON [PRIMARY]
 GO
 ALTER TABLE [Person].[Address] ADD CONSTRAINT [PK_Address_AddressID] PRIMARY KEY CLUSTERED  ([AddressID]) ON [PRIMARY]
