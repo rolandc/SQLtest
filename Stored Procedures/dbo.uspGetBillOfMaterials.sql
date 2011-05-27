@@ -1,3 +1,4 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
@@ -9,6 +10,8 @@ CREATE PROCEDURE [dbo].[uspGetBillOfMaterials]
 AS
 BEGIN
     SET NOCOUNT ON;
+
+		-- Hier komt een stukje tekst bij
 
     -- Use recursive query to generate a multi-level Bill of Material (i.e. all level 1 
     -- components of a level 0 assembly, all level 2 components of a level 1 assembly)
@@ -40,6 +43,7 @@ BEGIN
     OPTION (MAXRECURSION 25) 
 END;
 GO
+
 EXEC sp_addextendedproperty N'MS_Description', N'Stored procedure using a recursive query to return a multi-level bill of material for the specified ProductID.', 'SCHEMA', N'dbo', 'PROCEDURE', N'uspGetBillOfMaterials', NULL, NULL
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Input parameter for the stored procedure uspGetBillOfMaterials used to eliminate components not used after that date. Enter a valid date.', 'SCHEMA', N'dbo', 'PROCEDURE', N'uspGetBillOfMaterials', 'PARAMETER', N'@CheckDate'

@@ -1,3 +1,4 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
@@ -15,7 +16,6 @@ SELECT
     ,s.[Name] AS [Shift]
     ,d.[Name] AS [Department] 
     ,d.[GroupName] 
-    ,edh.[StartDate] 
     ,edh.[EndDate]
 FROM [HumanResources].[Employee] e
     INNER JOIN [Person].[Contact] c 
@@ -27,5 +27,6 @@ FROM [HumanResources].[Employee] e
     INNER JOIN [HumanResources].[Shift] s
     ON s.[ShiftID] = edh.[ShiftID];
 GO
+
 EXEC sp_addextendedproperty N'MS_Description', N'Returns employee name and current and previous departments.', 'SCHEMA', N'HumanResources', 'VIEW', N'vEmployeeDepartmentHistory', NULL, NULL
 GO
